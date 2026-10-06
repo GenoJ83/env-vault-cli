@@ -1,0 +1,1 @@
+PRE_COMMIT_HOOK = '#!/bin/sh\n# Prevent committing unencrypted .env files\nif git diff --cached --name-only | grep -E "^\\.env$"; then\n  echo "ERROR: .env file detected in commit staging!"\n  exit 1\nfi\n'
